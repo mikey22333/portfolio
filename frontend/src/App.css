@@ -1,0 +1,759 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  background: #111827;
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+/* Particles Background */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  animation: float 20s infinite linear;
+}
+
+.particle-1 { width: 4px; height: 4px; top: 20%; left: 10%; animation-duration: 25s; }
+.particle-2 { width: 6px; height: 6px; top: 40%; left: 20%; animation-duration: 30s; background: rgba(147, 51, 234, 0.1); }
+.particle-3 { width: 3px; height: 3px; top: 60%; left: 30%; animation-duration: 35s; }
+.particle-4 { width: 5px; height: 5px; top: 80%; left: 40%; animation-duration: 28s; background: rgba(6, 182, 212, 0.1); }
+.particle-5 { width: 4px; height: 4px; top: 30%; left: 50%; animation-duration: 32s; }
+.particle-6 { width: 7px; height: 7px; top: 70%; left: 60%; animation-duration: 26s; background: rgba(147, 51, 234, 0.1); }
+.particle-7 { width: 3px; height: 3px; top: 10%; left: 70%; animation-duration: 38s; }
+.particle-8 { width: 5px; height: 5px; top: 50%; left: 80%; animation-duration: 29s; background: rgba(6, 182, 212, 0.1); }
+.particle-9 { width: 4px; height: 4px; top: 90%; left: 90%; animation-duration: 33s; }
+.particle-10 { width: 6px; height: 6px; top: 25%; left: 85%; animation-duration: 27s; background: rgba(147, 51, 234, 0.1); }
+.particle-11 { width: 3px; height: 3px; top: 45%; left: 15%; animation-duration: 36s; }
+.particle-12 { width: 5px; height: 5px; top: 65%; left: 25%; animation-duration: 31s; background: rgba(6, 182, 212, 0.1); }
+.particle-13 { width: 4px; height: 4px; top: 85%; left: 35%; animation-duration: 34s; }
+.particle-14 { width: 7px; height: 7px; top: 15%; left: 45%; animation-duration: 24s; background: rgba(147, 51, 234, 0.1); }
+.particle-15 { width: 3px; height: 3px; top: 35%; left: 55%; animation-duration: 37s; }
+.particle-16 { width: 5px; height: 5px; top: 55%; left: 65%; animation-duration: 30s; background: rgba(6, 182, 212, 0.1); }
+.particle-17 { width: 4px; height: 4px; top: 75%; left: 75%; animation-duration: 32s; }
+.particle-18 { width: 6px; height: 6px; top: 95%; left: 5%; animation-duration: 28s; background: rgba(147, 51, 234, 0.1); }
+.particle-19 { width: 3px; height: 3px; top: 5%; left: 95%; animation-duration: 35s; }
+.particle-20 { width: 5px; height: 5px; top: 40%; left: 75%; animation-duration: 29s; background: rgba(6, 182, 212, 0.1); }
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* Animated Gradient Background */
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Burger Menu Animation */
+.burger-menu {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.mobile-menu.closed {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+/* Hero Background */
+.hero-bg {
+  background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #0f172a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Geometric Shapes */
+.geometric-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 10%;
+  animation: rotate 20s linear infinite;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  right: 10%;
+  animation: rotate 15s linear infinite reverse;
+  border-color: rgba(147, 51, 234, 0.1);
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 30%;
+  animation: rotate 25s linear infinite;
+  border-color: rgba(6, 182, 212, 0.1);
+}
+
+.shape-4 {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  right: 30%;
+  animation: rotate 18s linear infinite reverse;
+  border-color: rgba(147, 51, 234, 0.1);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Slide Up Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-slide-up-delay-1 {
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.animate-slide-up-delay-2 {
+  animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.animate-slide-up-delay-3 {
+  animation: slideUp 0.8s ease-out 0.6s both;
+}
+
+.animate-slide-up-delay-4 {
+  animation: slideUp 0.8s ease-out 0.8s both;
+}
+
+.animate-slide-up-delay-5 {
+  animation: slideUp 0.8s ease-out 1.0s both;
+}
+
+.animate-slide-up-delay-6 {
+  animation: slideUp 0.8s ease-out 1.2s both;
+}
+
+/* Typewriter Effect */
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Scroll Animation */
+.animate-scroll {
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Floating Cards */
+.floating-card {
+  background: rgba(31, 41, 55, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: float-card 6s ease-in-out infinite;
+}
+
+.floating-card:nth-child(1) { animation-delay: 0s; }
+.floating-card:nth-child(2) { animation-delay: 1.5s; }
+.floating-card:nth-child(3) { animation-delay: 3s; }
+.floating-card:nth-child(4) { animation-delay: 4.5s; }
+
+.floating-card:hover {
+  transform: translateY(-10px);
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skill Bars */
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(75, 85, 99, 0.5);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 9999px;
+  width: 0;
+  animation: fillSkill 2s ease-out forwards;
+  position: relative;
+}
+
+.skill-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes fillSkill {
+  from { width: 0; }
+  to { width: var(--skill-width); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Stat Cards */
+.stat-card {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(31, 41, 55, 0.3);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Service Cards */
+.service-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* Project Cards */
+.project-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) rotateY(2deg);
+}
+
+/* Form Animations */
+.form-group input:focus,
+.form-group textarea:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Button Hover Effects */
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #2563eb, #7c3aed);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+  color: #ff00c1;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+  color: #00fff9;
+  z-index: -2;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(64px, 9999px, 66px, 0);
+    transform: skew(0.85deg);
+  }
+  5% {
+    clip: rect(30px, 9999px, 36px, 0);
+    transform: skew(0.4deg);
+  }
+  10% {
+    clip: rect(70px, 9999px, 71px, 0);
+    transform: skew(0.7deg);
+  }
+  15% {
+    clip: rect(80px, 9999px, 84px, 0);
+    transform: skew(0.1deg);
+  }
+  20% {
+    clip: rect(54px, 9999px, 60px, 0);
+    transform: skew(0.3deg);
+  }
+  25% {
+    clip: rect(45px, 9999px, 46px, 0);
+    transform: skew(0.8deg);
+  }
+  30% {
+    clip: rect(65px, 9999px, 68px, 0);
+    transform: skew(0.2deg);
+  }
+  35% {
+    clip: rect(79px, 9999px, 81px, 0);
+    transform: skew(0.9deg);
+  }
+  40% {
+    clip: rect(50px, 9999px, 52px, 0);
+    transform: skew(0.5deg);
+  }
+  45% {
+    clip: rect(60px, 9999px, 62px, 0);
+    transform: skew(0.6deg);
+  }
+  50% {
+    clip: rect(40px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  55% {
+    clip: rect(75px, 9999px, 77px, 0);
+    transform: skew(0.7deg);
+  }
+  60% {
+    clip: rect(35px, 9999px, 38px, 0);
+    transform: skew(0.4deg);
+  }
+  65% {
+    clip: rect(85px, 9999px, 87px, 0);
+    transform: skew(0.1deg);
+  }
+  70% {
+    clip: rect(25px, 9999px, 28px, 0);
+    transform: skew(0.8deg);
+  }
+  75% {
+    clip: rect(55px, 9999px, 58px, 0);
+    transform: skew(0.2deg);
+  }
+  80% {
+    clip: rect(90px, 9999px, 92px, 0);
+    transform: skew(0.9deg);
+  }
+  85% {
+    clip: rect(20px, 9999px, 22px, 0);
+    transform: skew(0.5deg);
+  }
+  90% {
+    clip: rect(70px, 9999px, 73px, 0);
+    transform: skew(0.6deg);
+  }
+  95% {
+    clip: rect(15px, 9999px, 18px, 0);
+    transform: skew(0.3deg);
+  }
+  100% {
+    clip: rect(95px, 9999px, 98px, 0);
+    transform: skew(0.7deg);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+    transform: skew(0.7deg);
+  }
+  5% {
+    clip: rect(25px, 9999px, 99px, 0);
+    transform: skew(0.4deg);
+  }
+  10% {
+    clip: rect(50px, 9999px, 102px, 0);
+    transform: skew(0.5deg);
+  }
+  15% {
+    clip: rect(75px, 9999px, 90px, 0);
+    transform: skew(0.3deg);
+  }
+  20% {
+    clip: rect(30px, 9999px, 80px, 0);
+    transform: skew(0.8deg);
+  }
+  25% {
+    clip: rect(60px, 9999px, 85px, 0);
+    transform: skew(0.2deg);
+  }
+  30% {
+    clip: rect(40px, 9999px, 95px, 0);
+    transform: skew(0.9deg);
+  }
+  35% {
+    clip: rect(80px, 9999px, 100px, 0);
+    transform: skew(0.1deg);
+  }
+  40% {
+    clip: rect(20px, 9999px, 70px, 0);
+    transform: skew(0.6deg);
+  }
+  45% {
+    clip: rect(70px, 9999px, 110px, 0);
+    transform: skew(0.4deg);
+  }
+  50% {
+    clip: rect(35px, 9999px, 65px, 0);
+    transform: skew(0.7deg);
+  }
+  55% {
+    clip: rect(85px, 9999px, 120px, 0);
+    transform: skew(0.3deg);
+  }
+  60% {
+    clip: rect(10px, 9999px, 55px, 0);
+    transform: skew(0.8deg);
+  }
+  65% {
+    clip: rect(90px, 9999px, 105px, 0);
+    transform: skew(0.2deg);
+  }
+  70% {
+    clip: rect(45px, 9999px, 75px, 0);
+    transform: skew(0.5deg);
+  }
+  75% {
+    clip: rect(15px, 9999px, 45px, 0);
+    transform: skew(0.9deg);
+  }
+  80% {
+    clip: rect(95px, 9999px, 125px, 0);
+    transform: skew(0.1deg);
+  }
+  85% {
+    clip: rect(55px, 9999px, 85px, 0);
+    transform: skew(0.6deg);
+  }
+  90% {
+    clip: rect(5px, 9999px, 35px, 0);
+    transform: skew(0.4deg);
+  }
+  95% {
+    clip: rect(100px, 9999px, 130px, 0);
+    transform: skew(0.7deg);
+  }
+  100% {
+    clip: rect(25px, 9999px, 55px, 0);
+    transform: skew(0.3deg);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(1deg);
+  }
+  10% {
+    transform: skew(-1deg);
+  }
+  20% {
+    transform: skew(0deg);
+  }
+  30% {
+    transform: skew(1deg);
+  }
+  40% {
+    transform: skew(0deg);
+  }
+  50% {
+    transform: skew(-1deg);
+  }
+  60% {
+    transform: skew(0deg);
+  }
+  70% {
+    transform: skew(1deg);
+  }
+  80% {
+    transform: skew(0deg);
+  }
+  90% {
+    transform: skew(-1deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+/* 3D Flip Card Effect */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+  
+  .particles {
+    display: none;
+  }
+  
+  .shape {
+    display: none;
+  }
+  
+  .floating-card {
+    animation: none;
+  }
+  
+  .glitch {
+    font-size: 2rem;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .particle {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .shape {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .custom-cursor {
+    display: none;
+  }
+  
+  .particles {
+    display: none;
+  }
+}
