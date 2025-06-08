@@ -8,93 +8,95 @@ import emailjs from '@emailjs/browser';
 const allProjects = [
   {
     id: 1,
-    title: "AI-Powered SaaS Platform",
-    description: "A comprehensive AI dashboard with real-time analytics, machine learning integration, and advanced data visualization. Features include predictive modeling, automated reporting, and intelligent insights.",
-    longDescription: "This cutting-edge SaaS platform revolutionizes how businesses interact with AI technology. Built with modern microservices architecture, it provides real-time data processing, advanced machine learning algorithms, and intuitive user interfaces. The platform supports multiple AI models, offers seamless API integrations, and scales efficiently for enterprise-level deployments.",
-    tech: ["React", "TypeScript", "Python", "TensorFlow", "AWS", "Redis", "PostgreSQL"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
-    category: "Web Application",
+    title: "Fine Builders & Interiors",
+    description: "A modern, responsive website for Fine Builders & Interiors, a leading interior design company based in Kerala, India. Features cutting-edge web development with focus on user experience, performance, and SEO optimization.",
+    longDescription: "Fine Builders & Interiors is a comprehensive business website designed to showcase interior design services, portfolio projects, and facilitate client engagement. The website combines modern design aesthetics with robust functionality, featuring smooth animations, interactive elements, and glass morphism effects. Built with React 18, TypeScript, and Vite for optimal performance.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Wouter"],
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=300&fit=crop",
+    category: "Business Website",
     date: "2024",
     status: "Live",
-    client: "TechCorp Solutions",
-    duration: "6 months",
-    team: "4 developers",
-    features: ["Real-time Analytics", "ML Integration", "API Management", "Cloud Deployment"]
+    client: "Fine Builders & Interiors",
+    duration: "3 months",
+    team: "Solo Developer",
+    features: ["Responsive Design", "SEO Optimized", "Contact Integration", "Portfolio Gallery"],
+    liveUrl: "https://fine-builders.netlify.app",
+    githubUrl: "https://github.com/mikey22333/fine-builders"
   },
   {
     id: 2,
-    title: "Cryptocurrency Trading Platform",
-    description: "Real-time trading interface with advanced charting, portfolio management, and secure wallet integration. Supports multiple cryptocurrencies with advanced trading algorithms.",
-    longDescription: "A sophisticated cryptocurrency trading platform that provides institutional-grade trading capabilities to retail investors. Features include advanced charting tools, algorithmic trading bots, portfolio optimization, risk management systems, and secure multi-signature wallet integration. The platform processes thousands of transactions per second with 99.9% uptime.",
-    tech: ["Next.js", "Node.js", "WebSocket", "MongoDB", "Blockchain", "Docker", "Kubernetes"],
-    image: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=500&h=300&fit=crop",
-    category: "FinTech",
+    title: "E-Commerce Dashboard",
+    description: "Modern admin dashboard for e-commerce management with real-time analytics, inventory tracking, and order management. Features comprehensive reporting and user-friendly interface.",
+    longDescription: "A comprehensive e-commerce admin dashboard built with modern web technologies. Includes real-time sales analytics, inventory management, order processing, customer management, and detailed reporting. The dashboard provides intuitive data visualization and streamlined workflows for business operations.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Chart.js", "Material-UI"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
+    category: "Web Application",
     date: "2024",
-    status: "Live",
-    client: "CryptoVentures Inc",
-    duration: "8 months",
-    team: "6 developers",
-    features: ["Real-time Trading", "Advanced Charts", "Wallet Integration", "Risk Management"]
+    status: "In Development",
+    client: "Local Business",
+    duration: "4 months",
+    team: "Solo Developer",
+    features: ["Real-time Analytics", "Inventory Management", "Order Processing", "Reporting"]
   },
   {
     id: 3,
-    title: "Virtual Reality Experience Hub",
-    description: "Immersive VR platform with 3D interactions, spatial computing, and cross-platform compatibility. Delivers high-fidelity virtual experiences for education and training.",
-    longDescription: "An innovative VR platform that creates immersive educational and training experiences. Utilizing cutting-edge WebXR technology, it delivers high-quality 3D environments accessible through web browsers. The platform includes spatial audio, haptic feedback integration, multiplayer capabilities, and advanced physics simulations.",
-    tech: ["Three.js", "WebXR", "React", "WebGL", "Node.js", "Socket.io"],
-    image: "https://images.unsplash.com/photo-1636633762833-5d1658f1e29b?w=500&h=300&fit=crop",
-    category: "3D/VR",
-    date: "2024",
-    status: "Live",
-    client: "EduTech Innovations",
-    duration: "10 months",
-    team: "5 developers",
-    features: ["3D Environments", "Cross-platform", "Multiplayer", "Physics Engine"]
+    title: "Restaurant Management System",
+    description: "Complete restaurant management solution with online ordering, table reservations, menu management, and POS integration. Streamlines restaurant operations with modern technology.",
+    longDescription: "A comprehensive restaurant management system designed to modernize food service operations. Features include online ordering system, table reservation management, digital menu displays, inventory tracking, staff scheduling, and integrated POS system. Built with responsive design for use across all devices.",
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "Stripe", "Socket.io"],
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
+    category: "Business Application",
+    date: "2023",
+    status: "Completed",
+    client: "Local Restaurant Chain",
+    duration: "5 months",
+    team: "Solo Developer",
+    features: ["Online Ordering", "Table Reservations", "POS Integration", "Inventory Management"]
   },
   {
     id: 4,
-    title: "E-Commerce Marketplace",
-    description: "Modern e-commerce platform with advanced search, recommendation engine, and multi-vendor support. Features seamless payment processing and inventory management.",
-    longDescription: "A comprehensive e-commerce marketplace that connects buyers and sellers globally. Built with scalable architecture, it supports millions of products, advanced search algorithms, personalized recommendations, and multi-currency transactions. The platform includes seller dashboards, analytics, and automated marketing tools.",
-    tech: ["React", "Redux", "Node.js", "Express", "MongoDB", "Stripe", "AWS"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-    category: "E-Commerce",
-    date: "2023",
+    title: "Portfolio Website Template",
+    description: "Modern, responsive portfolio website template for creative professionals. Features smooth animations, dark theme, and optimized performance for showcasing work and skills.",
+    longDescription: "A sleek and professional portfolio website template designed for developers, designers, and creative professionals. Built with modern React and advanced CSS animations, it features a dark theme, smooth scrolling, interactive elements, and mobile-first responsive design. Includes sections for projects, skills, testimonials, and contact information.",
+    tech: ["React", "Tailwind CSS", "Framer Motion", "EmailJS", "React Router"],
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
+    category: "Portfolio",
+    date: "2024",
     status: "Live",
-    client: "Global Marketplace Ltd",
-    duration: "12 months",
-    team: "8 developers",
-    features: ["Multi-vendor", "Payment Gateway", "Recommendation Engine", "Analytics"]
+    client: "Personal Project",
+    duration: "2 months",
+    team: "Solo Developer",
+    features: ["Responsive Design", "Dark Theme", "Smooth Animations", "Contact Form"]
   },
   {
     id: 5,
-    title: "Healthcare Management System",
-    description: "Comprehensive healthcare platform with patient records, appointment scheduling, telemedicine capabilities, and HIPAA compliance for medical institutions.",
-    longDescription: "A full-featured healthcare management system designed for modern medical practices. Includes electronic health records, appointment scheduling, telemedicine video consultations, prescription management, and billing integration. Built with strict HIPAA compliance and enterprise-grade security.",
-    tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "AWS", "Docker"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop",
-    category: "Healthcare",
+    title: "Task Management Application",
+    description: "Collaborative task management application with real-time updates, team collaboration features, and project tracking. Designed for productivity and team coordination.",
+    longDescription: "A comprehensive task management application built for teams and individuals to organize, track, and collaborate on projects. Features include real-time updates, drag-and-drop task boards, team chat, file sharing, deadline tracking, and progress analytics. Built with modern web technologies for optimal performance and user experience.",
+    tech: ["React", "Node.js", "Socket.io", "MongoDB", "Express", "JWT"],
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
+    category: "Productivity",
     date: "2023",
-    status: "Live",
-    client: "MedTech Solutions",
-    duration: "14 months",
-    team: "10 developers",
-    features: ["EHR System", "Telemedicine", "HIPAA Compliant", "Billing Integration"]
+    status: "Completed",
+    client: "Startup Company",
+    duration: "4 months",
+    team: "Solo Developer",
+    features: ["Real-time Updates", "Team Collaboration", "Project Tracking", "File Sharing"]
   },
   {
     id: 6,
-    title: "Social Learning Platform",
-    description: "Interactive learning platform with video courses, live sessions, community features, and progress tracking. Gamified learning experience with certificates.",
-    longDescription: "An engaging social learning platform that combines education with community interaction. Features include HD video streaming, live interactive sessions, peer-to-peer learning, gamification elements, progress analytics, and certification programs. The platform supports multiple learning formats and accessibility features.",
-    tech: ["Next.js", "React", "Node.js", "MongoDB", "WebRTC", "Redis"],
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop",
-    category: "Education",
+    title: "Weather Dashboard",
+    description: "Modern weather application with real-time forecasts, interactive maps, and location-based weather alerts. Features beautiful UI and comprehensive weather data visualization.",
+    longDescription: "A comprehensive weather dashboard application that provides real-time weather information, 7-day forecasts, interactive weather maps, and location-based alerts. Built with modern design principles, it features beautiful data visualizations, responsive design, and integration with multiple weather APIs for accurate and up-to-date information.",
+    tech: ["React", "JavaScript", "Weather API", "Chart.js", "CSS3", "Responsive Design"],
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
+    category: "Web Application",
     date: "2023",
-    status: "Live",
-    client: "EduConnect Global",
-    duration: "9 months",
-    team: "7 developers",
-    features: ["Video Streaming", "Live Sessions", "Gamification", "Certificates"]
+    status: "Completed",
+    client: "Personal Project",
+    duration: "1 month",
+    team: "Solo Developer",
+    features: ["Real-time Weather", "Interactive Maps", "Weather Alerts", "Data Visualization"]
   }
 ];
 
@@ -662,12 +664,26 @@ const HomePage = () => {
                           View Details <FaArrowRight className="ml-2" />
                         </button>
                         <div className="flex space-x-2">
-                          <button className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center">
-                            <FaGithub className="text-sm" />
-                          </button>
-                          <button className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center">
-                            <FaExternalLinkAlt className="text-sm" />
-                          </button>
+                          {project.githubUrl && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center"
+                            >
+                              <FaGithub className="text-sm" />
+                            </a>
+                          )}
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center"
+                            >
+                              <FaExternalLinkAlt className="text-sm" />
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -949,7 +965,7 @@ const ProjectsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const navigate = useNavigate();
 
-  const categories = ['All', 'Web Application', 'FinTech', '3D/VR', 'E-Commerce', 'Healthcare', 'Education'];
+  const categories = ['All', 'Business Website', 'Web Application', 'Business Application', 'Portfolio', 'Productivity'];
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -1143,12 +1159,26 @@ const ProjectsPage = () => {
                           View Details <FaArrowRight className="ml-2" />
                         </button>
                         <div className="flex space-x-2">
-                          <button className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center">
-                            <FaGithub className="text-sm" />
-                          </button>
-                          <button className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center">
-                            <FaExternalLinkAlt className="text-sm" />
-                          </button>
+                          {project.githubUrl && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center"
+                            >
+                              <FaGithub className="text-sm" />
+                            </a>
+                          )}
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-700 hover:bg-blue-500 transition-colors duration-300 flex items-center justify-center"
+                            >
+                              <FaExternalLinkAlt className="text-sm" />
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
