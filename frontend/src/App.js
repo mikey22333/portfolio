@@ -380,8 +380,9 @@ const HomePage = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden relative z-10"
+              className="md:hidden relative z-50 flex items-center justify-center"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle mobile menu"
             >
               <div className="burger-menu">
                 <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
@@ -393,7 +394,7 @@ const HomePage = () => {
 
           {/* Mobile Navigation */}
           <div className={`md:hidden mobile-menu ${isMenuOpen ? 'open' : 'closed'}`}>
-            <div className="bg-gray-900/95 backdrop-blur-lg rounded-lg mt-4 p-6 border border-gray-800">
+            <div className="bg-gray-900/98 backdrop-blur-lg rounded-lg mt-4 p-6 border border-blue-500/30 shadow-2xl">
               {['home', 'about', 'services', 'projects', 'testimonials', 'contact'].map(section => (
                 <button
                   key={section}
@@ -1036,8 +1037,9 @@ const ProjectsPage = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden relative z-10"
+              className="md:hidden relative z-50 flex items-center justify-center"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle mobile menu"
             >
               <div className="burger-menu">
                 <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
@@ -1049,7 +1051,7 @@ const ProjectsPage = () => {
 
           {/* Mobile Navigation */}
           <div className={`md:hidden mobile-menu ${isMenuOpen ? 'open' : 'closed'}`}>
-            <div className="bg-gray-900/95 backdrop-blur-lg rounded-lg mt-4 p-6 border border-gray-800">
+            <div className="bg-gray-900/98 backdrop-blur-lg rounded-lg mt-4 p-6 border border-blue-500/30 shadow-2xl">
               <button
                 onClick={() => {
                   navigate('/projects');
@@ -1368,8 +1370,9 @@ const ProjectDetailPage = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden relative z-10"
+              className="md:hidden relative z-50 flex items-center justify-center"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle mobile menu"
             >
               <div className="burger-menu">
                 <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
@@ -1381,7 +1384,7 @@ const ProjectDetailPage = () => {
 
           {/* Mobile Navigation */}
           <div className={`md:hidden mobile-menu ${isMenuOpen ? 'open' : 'closed'}`}>
-            <div className="bg-gray-900/95 backdrop-blur-lg rounded-lg mt-4 p-6 border border-gray-800">
+            <div className="bg-gray-900/98 backdrop-blur-lg rounded-lg mt-4 p-6 border border-blue-500/30 shadow-2xl">
               <button
                 onClick={() => {
                   navigate('/projects');
