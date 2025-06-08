@@ -1,7 +1,8 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "riyas-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "axios": "^1.8.4",

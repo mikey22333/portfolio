@@ -189,8 +189,31 @@ The website is optimized for performance:
 
 ## 🚀 Deployment
 
-The website is ready for deployment to:
-- Netlify
+### Quick Deploy to Netlify (Recommended)
+
+This portfolio is optimized for Netlify deployment:
+
+1. **Fork/Clone this repository**
+2. **Connect to Netlify:**
+   - Go to [Netlify](https://netlify.com)
+   - Click "New site from Git"
+   - Select this repository
+   - Build settings are automatically configured via `netlify.toml`
+
+3. **Deploy:**
+   - Netlify will automatically build and deploy
+   - Your site will be live at a Netlify URL
+   - Every push to main branch triggers a new deployment
+
+### Detailed Deployment Guide
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment instructions including:
+- EmailJS setup for contact form
+- Custom domain configuration
+- Environment variables
+- Troubleshooting
+
+### Other Hosting Options
+The website is also compatible with:
 - Vercel
 - GitHub Pages
 - AWS S3 + CloudFront
