@@ -1,13 +1,3 @@
 # Redirects for React Router (Single Page Application)
 # This ensures that all routes are handled by React Router
 /*    /index.html   200
-
-# API redirects (if needed in the future)
-/api/*  https://your-backend-api.com/api/:splat  200
-
-# Security headers
-/*
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
