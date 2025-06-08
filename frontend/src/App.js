@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 import './App.css';
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaCode, FaLaptopCode, FaPalette, FaMobile, FaRocket, FaServer, FaArrowRight, FaDownload, FaPlay, FaHome, FaExternalLinkAlt, FaCalendarAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaCode, FaLaptopCode, FaPalette, FaMobile, FaRocket, FaServer, FaArrowRight, FaArrowLeft, FaDownload, FaPlay, FaHome, FaExternalLinkAlt, FaCalendarAlt } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 // Projects data
@@ -11,17 +11,21 @@ const allProjects = [
     title: "Fine Builders & Interiors",
     description: "A modern, responsive website for Fine Builders & Interiors, a leading interior design company based in Kerala, India. Features cutting-edge web development with focus on user experience, performance, and SEO optimization.",
     longDescription: "Fine Builders & Interiors is a comprehensive business website designed to showcase interior design services, portfolio projects, and facilitate client engagement. The website combines modern design aesthetics with robust functionality, featuring smooth animations, interactive elements, and glass morphism effects. Built with React 18, TypeScript, and Vite for optimal performance.",
+    detailedDescription: "Fine Builders & Interiors represents a pinnacle of modern web development, showcasing a leading interior design company based in Kerala, India. This project demonstrates expertise in creating sophisticated business websites that combine aesthetic excellence with functional superiority.\n\nThe website features a comprehensive service showcase, interactive portfolio gallery, and seamless client engagement tools. Built with cutting-edge technologies including React 18, TypeScript, and Vite, it delivers exceptional performance and user experience.\n\nKey technical achievements include responsive design implementation, SEO optimization, smooth animations with Framer Motion, and integration of modern web standards. The project showcases advanced development skills in creating business-focused web solutions.",
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Wouter"],
     image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=300&fit=crop",
     category: "Business Website",
-    date: "2024",
+    date: "2025",
     status: "Live",
     client: "Fine Builders & Interiors",
-    duration: "3 months",
+    duration: "1 week",
     team: "Solo Developer",
     features: ["Responsive Design", "SEO Optimized", "Contact Integration", "Portfolio Gallery"],
     liveUrl: "https://finebuilders.netlify.app",
-    githubUrl: "https://github.com/mikey22333/fine-builders"
+    githubUrl: "https://github.com/mikey22333/fine-builders",
+    challenges: ["Complex design requirements", "Performance optimization", "SEO implementation", "Mobile responsiveness"],
+    solutions: ["Modern React architecture", "Optimized asset delivery", "Structured data markup", "Mobile-first design approach"],
+    results: ["95+ Lighthouse score", "100% mobile responsive", "Fast loading times", "Professional online presence"]
   },
   {
     id: 2,
@@ -660,7 +664,10 @@ const HomePage = () => {
                       </div>
                       
                       <div className="flex items-center justify-between">
-                        <button className="flex items-center text-blue-400 hover:text-blue-300 font-semibold transition-colors group-hover:translate-x-2 duration-300">
+                        <button
+                          onClick={() => navigate(`/project/${project.id}`)}
+                          className="flex items-center text-blue-400 hover:text-blue-300 font-semibold transition-colors group-hover:translate-x-2 duration-300"
+                        >
                           View Details <FaArrowRight className="ml-2" />
                         </button>
                         <div className="flex space-x-2">
@@ -1155,7 +1162,10 @@ const ProjectsPage = () => {
                       
                       {/* Action Buttons */}
                       <div className="flex items-center justify-between">
-                        <button className="flex items-center text-blue-400 hover:text-blue-300 font-semibold transition-colors group-hover:translate-x-2 duration-300 text-sm">
+                        <button
+                          onClick={() => navigate(`/project/${project.id}`)}
+                          className="flex items-center text-blue-400 hover:text-blue-300 font-semibold transition-colors group-hover:translate-x-2 duration-300 text-sm"
+                        >
                           View Details <FaArrowRight className="ml-2" />
                         </button>
                         <div className="flex space-x-2">
@@ -1229,6 +1239,268 @@ const ProjectsPage = () => {
   );
 };
 
+// Project Detail Page Component
+const ProjectDetailPage = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const project = allProjects.find(p => p.id === parseInt(id));
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  if (!project) {
+    return (
+      <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
+          <button
+            onClick={() => navigate('/projects')}
+            className="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            Back to Projects
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-gray-900 text-white min-h-screen">
+      {/* Custom Cursor */}
+      <div
+        className="custom-cursor"
+        style={{
+          left: mousePosition.x,
+          top: mousePosition.y,
+        }}
+      ></div>
+
+      {/* Floating Particles */}
+      <div className="particles">
+        {[...Array(15)].map((_, i) => (
+          <div key={i} className={`particle particle-${i + 1}`}></div>
+        ))}
+      </div>
+
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-gray-900/80 backdrop-blur-lg z-50 border-b border-gray-800/50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <Link to="/" className="text-2xl font-bold relative">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent animate-gradient">
+                RIYAS
+              </span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg blur opacity-20 animate-pulse"></div>
+            </Link>
+
+            <div className="flex space-x-6">
+              <button
+                onClick={() => navigate('/projects')}
+                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
+              >
+                <FaArrowLeft className="mr-2" />
+                Back to Projects
+              </button>
+              <button
+                onClick={() => navigate('/')}
+                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
+              >
+                <FaHome className="mr-2" />
+                Home
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Project Detail Content */}
+      <div className="pt-32 pb-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            {/* Project Header */}
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center mb-4">
+                <span className={`px-4 py-2 rounded-full text-sm font-medium ${
+                  project.status === 'Live' ? 'bg-green-500/20 text-green-400' : 'bg-orange-500/20 text-orange-400'
+                }`}>
+                  {project.status}
+                </span>
+                <span className="mx-4 text-gray-400">•</span>
+                <span className="text-gray-400">{project.date}</span>
+              </div>
+
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                {project.title}
+              </h1>
+
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+                {project.description}
+              </p>
+
+              <div className="flex justify-center space-x-4">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:scale-105 transition-transform"
+                  >
+                    <FaExternalLinkAlt className="mr-2" />
+                    View Live Site
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-6 py-3 bg-gray-800 border border-gray-700 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
+                  >
+                    <FaGithub className="mr-2" />
+                    View Code
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Project Image */}
+            <div className="mb-16">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+              </div>
+            </div>
+
+            {/* Project Details Grid */}
+            <div className="grid lg:grid-cols-3 gap-12 mb-16">
+              {/* Project Info */}
+              <div className="lg:col-span-2">
+                <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
+                <div className="prose prose-invert max-w-none">
+                  <p className="text-gray-300 leading-relaxed mb-6">
+                    {project.detailedDescription || project.longDescription}
+                  </p>
+                </div>
+
+                {/* Challenges & Solutions */}
+                {project.challenges && project.solutions && (
+                  <div className="grid md:grid-cols-2 gap-8 mt-12">
+                    <div>
+                      <h3 className="text-xl font-bold mb-4 text-red-400">Challenges</h3>
+                      <ul className="space-y-2">
+                        {project.challenges.map((challenge, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="text-gray-300">{challenge}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold mb-4 text-green-400">Solutions</h3>
+                      <ul className="space-y-2">
+                        {project.solutions.map((solution, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="text-gray-300">{solution}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
+                {/* Results */}
+                {project.results && (
+                  <div className="mt-12">
+                    <h3 className="text-xl font-bold mb-4 text-blue-400">Results & Impact</h3>
+                    <ul className="space-y-2">
+                      {project.results.map((result, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          <span className="text-gray-300">{result}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* Sidebar */}
+              <div>
+                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                  <h3 className="text-xl font-bold mb-6">Project Details</h3>
+
+                  <div className="space-y-4">
+                    <div>
+                      <span className="text-gray-400 text-sm">Client</span>
+                      <p className="text-blue-400 font-medium">{project.client}</p>
+                    </div>
+
+                    <div>
+                      <span className="text-gray-400 text-sm">Duration</span>
+                      <p className="text-white font-medium">{project.duration}</p>
+                    </div>
+
+                    <div>
+                      <span className="text-gray-400 text-sm">Team</span>
+                      <p className="text-white font-medium">{project.team}</p>
+                    </div>
+
+                    <div>
+                      <span className="text-gray-400 text-sm">Category</span>
+                      <p className="text-white font-medium">{project.category}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-8">
+                    <h4 className="text-lg font-bold mb-4">Technologies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm border border-blue-500/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8">
+                    <h4 className="text-lg font-bold mb-4">Key Features</h4>
+                    <ul className="space-y-2">
+                      {project.features.map((feature, index) => (
+                        <li key={index} className="flex items-center">
+                          <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></span>
+                          <span className="text-gray-300 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Main App Component with Router
 const App = () => {
   return (
@@ -1237,6 +1509,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/project/:id" element={<ProjectDetailPage />} />
         </Routes>
       </div>
     </Router>
