@@ -20,7 +20,7 @@ const allProjects = [
     duration: "3 months",
     team: "Solo Developer",
     features: ["Responsive Design", "SEO Optimized", "Contact Integration", "Portfolio Gallery"],
-    liveUrl: "https://fine-builders.netlify.app",
+    liveUrl: "https://finebuilders.netlify.app",
     githubUrl: "https://github.com/mikey22333/fine-builders"
   },
   {
