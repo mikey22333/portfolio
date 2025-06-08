@@ -380,14 +380,30 @@ const HomePage = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden relative z-50 flex items-center justify-center"
+              className="md:hidden menu-button relative z-50 w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-500/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/25"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle mobile menu"
             >
-              <div className="burger-menu">
-                <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-                <div className={`line ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-                <div className={`line ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+              <div className="relative w-6 h-6 flex items-center justify-center">
+                {isMenuOpen ? (
+                  <svg
+                    className="w-5 h-5 text-blue-400 transition-all duration-300 transform rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-5 h-5 text-blue-400 transition-all duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </div>
             </button>
           </div>
@@ -1037,14 +1053,30 @@ const ProjectsPage = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden relative z-50 flex items-center justify-center"
+              className="md:hidden menu-button relative z-50 w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-500/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/25"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle mobile menu"
             >
-              <div className="burger-menu">
-                <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-                <div className={`line ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-                <div className={`line ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+              <div className="relative w-6 h-6 flex items-center justify-center">
+                {isMenuOpen ? (
+                  <svg
+                    className="w-5 h-5 text-blue-400 transition-all duration-300 transform rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-5 h-5 text-blue-400 transition-all duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </div>
             </button>
           </div>
@@ -1370,14 +1402,30 @@ const ProjectDetailPage = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden relative z-50 flex items-center justify-center"
+              className="md:hidden menu-button relative z-50 w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-500/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/25"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle mobile menu"
             >
-              <div className="burger-menu">
-                <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-                <div className={`line ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-                <div className={`line ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+              <div className="relative w-6 h-6 flex items-center justify-center">
+                {isMenuOpen ? (
+                  <svg
+                    className="w-5 h-5 text-blue-400 transition-all duration-300 transform rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-5 h-5 text-blue-400 transition-all duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </div>
             </button>
           </div>
