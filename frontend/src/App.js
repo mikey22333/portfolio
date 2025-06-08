@@ -621,7 +621,7 @@ const HomePage = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full mt-6"></div>
             </div>
             
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {featuredProjects.map((project, index) => (
                 <div key={index} className="project-card reveal group">
                   <div className="relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 transition-all duration-500 group-hover:transform group-hover:scale-105 group-hover:shadow-2xl">
@@ -970,6 +970,7 @@ const HomePage = () => {
 const ProjectsPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const categories = ['All', 'Business Website', 'Web Application', 'Business Application', 'Portfolio', 'Productivity'];
@@ -1015,14 +1016,59 @@ const ProjectsPage = () => {
               </span>
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg blur opacity-20 animate-pulse"></div>
             </Link>
-            
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-6">
+              <button
+                onClick={() => navigate('/projects')}
+                className="flex items-center text-blue-400 font-medium"
+              >
+                Projects
+              </button>
+              <button
+                onClick={() => navigate('/')}
+                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
+              >
+                <FaHome className="mr-2" />
+                Home
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
             <button
-              onClick={() => navigate('/')}
-              className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
+              className="md:hidden relative z-10"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <FaHome className="mr-2" />
-              Back to Home
+              <div className="burger-menu">
+                <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+                <div className={`line ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+                <div className={`line ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+              </div>
             </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className={`md:hidden mobile-menu ${isMenuOpen ? 'open' : 'closed'}`}>
+            <div className="bg-gray-900/95 backdrop-blur-lg rounded-lg mt-4 p-6 border border-gray-800">
+              <button
+                onClick={() => {
+                  navigate('/projects');
+                  setIsMenuOpen(false);
+                }}
+                className="block w-full text-left py-3 text-blue-400 font-medium border-b border-gray-800"
+              >
+                Projects
+              </button>
+              <button
+                onClick={() => {
+                  navigate('/');
+                  setIsMenuOpen(false);
+                }}
+                className="block w-full text-left py-3 text-gray-300 hover:text-blue-400 transition-colors"
+              >
+                Home
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -1032,7 +1078,7 @@ const ProjectsPage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-gray-900"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               My <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent animate-gradient">Projects</span>
             </h1>
             <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -1052,7 +1098,7 @@ const ProjectsPage = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-3 rounded-full border transition-all duration-300 ${
+                  className={`px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-full border transition-all duration-300 ${
                     selectedCategory === category
                       ? 'bg-gradient-to-r from-blue-500 to-purple-600 border-transparent text-white'
                       : 'border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400'
@@ -1070,7 +1116,7 @@ const ProjectsPage = () => {
       <section className="pb-20 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filteredProjects.map((project, index) => (
                 <div key={project.id} className="project-card group">
                   <div className="relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 transition-all duration-500 group-hover:transform group-hover:scale-105 group-hover:shadow-2xl">
@@ -1242,6 +1288,7 @@ const ProjectsPage = () => {
 // Project Detail Page Component
 const ProjectDetailPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -1301,7 +1348,8 @@ const ProjectDetailPage = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg blur opacity-20 animate-pulse"></div>
             </Link>
 
-            <div className="flex space-x-6">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-6">
               <button
                 onClick={() => navigate('/projects')}
                 className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
@@ -1315,6 +1363,42 @@ const ProjectDetailPage = () => {
               >
                 <FaHome className="mr-2" />
                 Home
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden relative z-10"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <div className="burger-menu">
+                <div className={`line ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+                <div className={`line ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+                <div className={`line ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+              </div>
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className={`md:hidden mobile-menu ${isMenuOpen ? 'open' : 'closed'}`}>
+            <div className="bg-gray-900/95 backdrop-blur-lg rounded-lg mt-4 p-6 border border-gray-800">
+              <button
+                onClick={() => {
+                  navigate('/projects');
+                  setIsMenuOpen(false);
+                }}
+                className="block w-full text-left py-3 text-gray-300 hover:text-blue-400 transition-colors border-b border-gray-800"
+              >
+                ← Back to Projects
+              </button>
+              <button
+                onClick={() => {
+                  navigate('/');
+                  setIsMenuOpen(false);
+                }}
+                className="block w-full text-left py-3 text-gray-300 hover:text-blue-400 transition-colors"
+              >
+                🏠 Home
               </button>
             </div>
           </div>
@@ -1337,7 +1421,7 @@ const ProjectDetailPage = () => {
                 <span className="text-gray-400">{project.date}</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 {project.title}
               </h1>
 
@@ -1345,13 +1429,13 @@ const ProjectDetailPage = () => {
                 {project.description}
               </p>
 
-              <div className="flex justify-center space-x-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:scale-105 transition-transform"
+                    className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:scale-105 transition-transform"
                   >
                     <FaExternalLinkAlt className="mr-2" />
                     View Live Site
@@ -1362,7 +1446,7 @@ const ProjectDetailPage = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center px-6 py-3 bg-gray-800 border border-gray-700 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
+                    className="flex items-center justify-center px-6 py-3 bg-gray-800 border border-gray-700 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
                   >
                     <FaGithub className="mr-2" />
                     View Code
@@ -1384,9 +1468,9 @@ const ProjectDetailPage = () => {
             </div>
 
             {/* Project Details Grid */}
-            <div className="grid lg:grid-cols-3 gap-12 mb-16">
+            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 mb-16">
               {/* Project Info */}
-              <div className="lg:col-span-2">
+              <div className="lg:col-span-2 order-2 lg:order-1">
                 <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
                 <div className="prose prose-invert max-w-none">
                   <p className="text-gray-300 leading-relaxed mb-6">
@@ -1440,7 +1524,7 @@ const ProjectDetailPage = () => {
               </div>
 
               {/* Sidebar */}
-              <div>
+              <div className="order-1 lg:order-2">
                 <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
                   <h3 className="text-xl font-bold mb-6">Project Details</h3>
 
